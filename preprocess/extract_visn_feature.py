@@ -64,7 +64,7 @@ class ResnetFeatureExtractor():
         if dataname=='coco':
             img_paths = [osp.join(self.image_dir, 'COCO_val2014_'+str(id).zfill(12)+'.jpg')  for id in img_ids ]
         else:
-            img_paths = [ osp.join(self.image_dir, id+'.jpg')  for id in img_ids]
+            img_paths = [ osp.join(self.image_dir, id)  for id in img_ids] #kein .jpg mehr angehängt
 
         tensor_imgs = []
         img_feats = []
@@ -103,3 +103,5 @@ class ResnetFeatureExtractor():
         for i, img_feat in enumerate(img_feats):
             dset[i] = img_feat
         h5_file.close()
+
+
